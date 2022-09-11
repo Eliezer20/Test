@@ -9,6 +9,17 @@ pipeline {
                                 git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
                         }
                 }
+                stage ('build app') {
+                        steps {
+                                sh 'mvn clean install'
+                        }
+                }
 
+                stage ('testing the app') {
+                        steps {
+                               sh 'mvn test'
+                        }
+
+        }
 
 }
