@@ -10,7 +10,7 @@ pipeline {
 
                 stage ('build app') {
                         steps {
-                                mvn clean install
+                                sh 'mvn clean install'
                         }
                 }
 
