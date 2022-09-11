@@ -10,18 +10,5 @@ pipeline {
                         }
                 }
 
-                stage ('build app') {
-                        steps {
-                                sh 'mvn clean install'
-                        }
-                }
-
-                stage ('testing the app') {
-                        steps {
-                               sh 'mvn test'
-                        }
-
-
-        }
 
 }
