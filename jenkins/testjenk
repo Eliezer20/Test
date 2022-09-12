@@ -20,7 +20,22 @@ pipeline {
                                sh 'mvn test'
                         }
                 }
-                
+                stage('upload artifactory') {
+                        steps {
+                                script { 
+                                        def server = Artifactory.server 'artifactory'
+                                        def uploadSpec = """{
+                                                   "files": [{
+                                                        "pattern": "path/",
+                                                        "target": "path/"
+                                                        }]
+                                               }"""
+
+                                server.upload(uploadSpec) 
+                                }
+                        }
                 }
+                          
+        }
 
 }
